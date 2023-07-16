@@ -7,16 +7,16 @@ plugins {
 
 android {
     namespace = "ru.yotfr.weather"
-    compileSdk = 34
+    compileSdk = WeatherConfig.compileSdk
 
     defaultConfig {
         applicationId = "ru.yotfr.weather"
-        minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = WeatherConfig.minSdk
+        targetSdk = WeatherConfig.targetSdk
+        versionCode = WeatherConfig.versionCode
+        versionName = WeatherConfig.versionName
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = WeatherConfig.androidTestInstrumentation
         vectorDrawables {
             useSupportLibrary = true
         }
