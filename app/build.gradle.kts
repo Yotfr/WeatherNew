@@ -1,5 +1,4 @@
 @file:Suppress("UnstableApiUsage")
-
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
