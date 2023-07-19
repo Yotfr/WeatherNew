@@ -37,7 +37,6 @@ android {
 dependencies {
     androidCore()
     kotlinBom(project)
-    retrofit()
     dagger()
     test()
 }

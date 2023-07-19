@@ -79,8 +79,12 @@ object Dagger {
 
 object Retrofit {
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
-    const val jsonConverter = "com.squareup.moshi:moshi:${Versions.moshi}"
+    const val jsonConverter = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
     const val okHttp = "com.squareup.okhttp3:okhttp:${Versions.okHttp}"
+
+}
+object Moshi {
+    const val moshi = "com.squareup.moshi:moshi:${Versions.moshi}"
 }
 
 fun DependencyHandler.androidCore() {
@@ -121,6 +125,10 @@ fun DependencyHandler.retrofit() {
     implementation(Retrofit.retrofit)
     implementation(Retrofit.jsonConverter)
     implementation(Retrofit.okHttp)
+}
+
+fun DependencyHandler.moshi() {
+    implementation(Moshi.moshi)
 }
 
 

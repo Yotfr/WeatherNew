@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -33,4 +34,10 @@ android {
     }
 }
 
-dependencies {}
+dependencies {
+    androidCore()
+    kotlinBom(project)
+    retrofit()
+    dagger()
+    test()
+}
