@@ -11,6 +11,10 @@ object Versions {
     const val jUnit = "4.13.2"
     const val jUnitExt = "1.1.5"
     const val espresso = "3.5.1"
+    const val dagger = "2.47"
+    const val retrofit = "2.9.0"
+    const val moshi = "1.14.0"
+    const val okHttp = "4.11.0"
 }
 
 private fun DependencyHandler.implementation(depName: Dependency) {
@@ -68,6 +72,17 @@ object Test {
     const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
 }
 
+object Dagger {
+    const val dagger = "com.google.dagger:dagger:${Versions.dagger}"
+    const val compiler = "com.google.dagger:dagger-compiler:${Versions.dagger}"
+}
+
+object Retrofit {
+    const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    const val jsonConverter = "com.squareup.moshi:moshi:${Versions.moshi}"
+    const val okHttp = "com.squareup.okhttp3:okhttp:${Versions.okHttp}"
+}
+
 fun DependencyHandler.androidCore() {
     implementation(Android.core)
 }
@@ -95,6 +110,17 @@ fun DependencyHandler.test() {
     testImplementation(Test.jUnit)
     androidTestImplementation(Test.androidJUnit)
     androidTestImplementation(Test.espresso)
+}
+
+fun DependencyHandler.dagger() {
+    implementation(Dagger.dagger)
+    kapt(Dagger.compiler)
+}
+
+fun DependencyHandler.retrofit() {
+    implementation(Retrofit.retrofit)
+    implementation(Retrofit.jsonConverter)
+    implementation(Retrofit.okHttp)
 }
 
 
