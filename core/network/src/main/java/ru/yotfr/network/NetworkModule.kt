@@ -6,10 +6,8 @@ import ru.yotfr.network.actualweather.ActualWeatherService
 import ru.yotfr.network.actualweather.WeatherProvider
 import ru.yotfr.network.places.PlacesProvider
 import ru.yotfr.network.places.PlacesService
-import javax.inject.Singleton
 
 @Module
-@Singleton
 object NetworkModule {
 
     @Provides

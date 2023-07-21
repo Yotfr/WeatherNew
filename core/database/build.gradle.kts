@@ -34,6 +34,8 @@ android {
 }
 
 dependencies {
+    moshi()
+    dagger()
     androidCore()
     kotlinBom(project)
     room()
