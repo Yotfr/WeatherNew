@@ -2,7 +2,6 @@ package ru.yotfr.network.actualweather
 
 import ru.yotfr.network.actualweather.model.ActualWeatherDTO
 import ru.yotfr.network.calladapter.NetworkResponse
-import ru.yotfr.network.calladapter.on
 import javax.inject.Inject
 
 class WeatherProvider @Inject internal constructor(

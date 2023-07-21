@@ -4,6 +4,8 @@ import dagger.Module
 import dagger.Provides
 import ru.yotfr.network.actualweather.ActualWeatherService
 import ru.yotfr.network.actualweather.WeatherProvider
+import ru.yotfr.network.places.PlacesProvider
+import ru.yotfr.network.places.PlacesService
 import javax.inject.Singleton
 
 @Module
@@ -18,6 +20,16 @@ object NetworkModule {
     @Provides
     fun provideWeatherProvider(actualWeatherService: ActualWeatherService): WeatherProvider {
         return WeatherProvider(actualWeatherService)
+    }
+
+    @Provides
+    fun providePlacesService() : PlacesService {
+        return PlacesService()
+    }
+
+    @Provides
+    fun providePlacesProvider(placesService: PlacesService): PlacesProvider {
+        return PlacesProvider(placesService)
     }
 
 }

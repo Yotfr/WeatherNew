@@ -9,7 +9,7 @@ import ru.yotfr.network.calladapter.NetworkResponse
 import ru.yotfr.network.calladapter.NetworkResponseAdapterFactory
 import ru.yotfr.network.actualweather.model.ActualWeatherDTO
 
-internal interface ActualWeatherService {
+interface ActualWeatherService {
     @GET("v1/forecast")
     suspend fun getWeather(
         @Query("latitude") latitude: Float,
