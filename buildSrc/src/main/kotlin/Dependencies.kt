@@ -15,6 +15,7 @@ object Versions {
     const val retrofit = "2.9.0"
     const val moshi = "1.14.0"
     const val okHttp = "4.11.0"
+    const val room = "2.5.2"
 }
 
 private fun DependencyHandler.implementation(depName: Dependency) {
@@ -87,6 +88,11 @@ object Moshi {
     const val moshi = "com.squareup.moshi:moshi:${Versions.moshi}"
 }
 
+object Room {
+    const val room = "androidx.room:room-runtime:${Versions.room}"
+    const val compiler = "androidx.room:room-compiler:${Versions.room}"
+}
+
 fun DependencyHandler.androidCore() {
     implementation(Android.core)
 }
@@ -129,6 +135,11 @@ fun DependencyHandler.retrofit() {
 
 fun DependencyHandler.moshi() {
     implementation(Moshi.moshi)
+}
+
+fun DependencyHandler.room() {
+    implementation(Room.room)
+    kapt(Room.compiler)
 }
 
 
