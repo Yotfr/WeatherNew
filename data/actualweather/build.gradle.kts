@@ -3,7 +3,6 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
 }
-
 android {
     namespace = "ru.yotfr.database"
     compileSdk = WeatherConfig.compileSdk
@@ -26,17 +25,24 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        isCoreLibraryDesugaringEnabled = true
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
 }
 
 dependencies {
+    implementation(project(":core:database"))
+    implementation(project(":core:network"))
+    implementation(project(":domain:actualweather"))
+    implementation(project(":domain:shared"))
+    implementation(project(":core:common"))
+
+    desugaring()
+    hilt()
     androidCore()
     kotlinBom(project)
-    dagger()
-    test()
 }

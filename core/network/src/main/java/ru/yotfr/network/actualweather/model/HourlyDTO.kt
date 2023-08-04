@@ -1,5 +1,4 @@
 package ru.yotfr.network.actualweather.model
-
 data class HourlyDTO(
     val apparent_temperature: List<Double>?,
     val is_day: List<Int>?,

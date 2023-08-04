@@ -6,15 +6,19 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import ru.yotfr.database.actualweather.dao.ActualWeatherDao
-import ru.yotfr.database.actualweather.model.ActualWeatherEntity
+import ru.yotfr.database.actualweather.model.TodayActualWeatherEntity
+import ru.yotfr.database.actualweather.model.WeeklyActualWeatherEntity
+import ru.yotfr.database.converter.Converters
 import ru.yotfr.database.places.dao.PlacesDao
 import ru.yotfr.database.places.model.PlaceEntity
 
 @Database(
     entities = [
-        ActualWeatherEntity::class,
+        TodayActualWeatherEntity::class,
+        WeeklyActualWeatherEntity::class,
         PlaceEntity::class
-    ], version = 1
+    ], version = 1,
+    exportSchema = false
 )
 @TypeConverters(Converters::class)
 abstract class MDatabase : RoomDatabase() {

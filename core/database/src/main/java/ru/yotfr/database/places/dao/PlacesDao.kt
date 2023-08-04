@@ -8,7 +8,6 @@ import ru.yotfr.database.places.model.PlaceEntity
 
 @Dao
 interface PlacesDao {
-
     @Upsert(entity = PlaceEntity::class)
     suspend fun upsertPlace(placeEntity: PlaceEntity)
 
@@ -16,5 +15,12 @@ interface PlacesDao {
     suspend fun deletePlace(placeEntity: PlaceEntity)
 
     @Query("SELECT * FROM places WHERE id = :id")
-    suspend fun getPlace(id: Long): PlaceEntity
+    suspend fun getPlaceById(id: Long): PlaceEntity
+
+    @Query("SELECT * FROM places WHERE isSelected = 1")
+    suspend fun getSelectedPlace(): PlaceEntity?
+
+    @Query("SELECT * FROM places WHERE isHome = 1")
+    suspend fun getHomePlace(): PlaceEntity?
+
 }

@@ -10,8 +10,8 @@ data class Hourly(
     val showers: List<Double>?,
     val snowfall: List<Double>?,
     val temperature_2m: List<Double>?,
-    val time: List<String>?,
+    val time_hourly: List<String>?,
     val uv_index: List<Double>?,
     val visibility: List<Double>?,
-    val weathercode: List<Int>?
+    val weather_code: List<Int>?
 )

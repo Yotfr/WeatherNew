@@ -2,11 +2,14 @@ package ru.yotfr.network
 
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
+import ru.yotfr.network.actualweather.ActualWeatherRemoteProvider
 import ru.yotfr.network.actualweather.ActualWeatherService
-import ru.yotfr.network.actualweather.WeatherProvider
-import ru.yotfr.network.places.PlacesProvider
+import ru.yotfr.network.places.PlacesRemoteProvider
 import ru.yotfr.network.places.PlacesService
 
+@InstallIn(SingletonComponent::class)
 @Module
 object NetworkModule {
 
@@ -16,8 +19,8 @@ object NetworkModule {
     }
 
     @Provides
-    fun provideWeatherProvider(actualWeatherService: ActualWeatherService): WeatherProvider {
-        return WeatherProvider(actualWeatherService)
+    fun provideWeatherProvider(actualWeatherService: ActualWeatherService): ActualWeatherRemoteProvider {
+        return ActualWeatherRemoteProvider(actualWeatherService)
     }
 
     @Provides
@@ -26,8 +29,8 @@ object NetworkModule {
     }
 
     @Provides
-    fun providePlacesProvider(placesService: PlacesService): PlacesProvider {
-        return PlacesProvider(placesService)
+    fun providePlacesProvider(placesService: PlacesService): PlacesRemoteProvider {
+        return PlacesRemoteProvider(placesService)
     }
 
 }

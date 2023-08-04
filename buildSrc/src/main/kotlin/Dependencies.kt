@@ -11,11 +11,16 @@ object Versions {
     const val jUnit = "4.13.2"
     const val jUnitExt = "1.1.5"
     const val espresso = "3.5.1"
-    const val dagger = "2.47"
+    const val hilt = "2.44"
     const val retrofit = "2.9.0"
     const val moshi = "1.14.0"
     const val okHttp = "4.11.0"
     const val room = "2.5.2"
+    const val desugaring = "2.0.3"
+    const val coroutines = "1.3.9"
+    const val navigation = "2.6.0"
+    const val gms = "21.0.1"
+    const val hiltNav = "1.0.0"
 }
 
 private fun DependencyHandler.implementation(depName: Dependency) {
@@ -45,6 +50,9 @@ private fun DependencyHandler.compileOnly(depName: String) {
 private fun DependencyHandler.api(depName: String) {
     add("api", depName)
 }
+private fun DependencyHandler.desugaring(depName: String) {
+    add("coreLibraryDesugaring", depName)
+}
 
 object Android {
     const val core = "androidx.core:core-ktx:${Versions.androidCore}"
@@ -73,16 +81,18 @@ object Test {
     const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
 }
 
-object Dagger {
-    const val dagger = "com.google.dagger:dagger:${Versions.dagger}"
-    const val compiler = "com.google.dagger:dagger-compiler:${Versions.dagger}"
+object Hilt {
+    const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
+    const val compiler = "com.google.dagger:hilt-compiler:${Versions.hilt}"
+    const val navigation = "androidx.hilt:hilt-navigation-compose:${Versions.hiltNav}"
 }
 
 object Retrofit {
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val jsonConverter = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
     const val okHttp = "com.squareup.okhttp3:okhttp:${Versions.okHttp}"
-
+    const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttp}"
+    const val gsonConverter = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
 }
 object Moshi {
     const val moshi = "com.squareup.moshi:moshi:${Versions.moshi}"
@@ -91,6 +101,24 @@ object Moshi {
 object Room {
     const val room = "androidx.room:room-runtime:${Versions.room}"
     const val compiler = "androidx.room:room-compiler:${Versions.room}"
+    const val ktx = "androidx.room:room-ktx:${Versions.room}"
+}
+
+object Desugaring {
+    const val desugaring = "com.android.tools:desugar_jdk_libs:${Versions.desugaring}"
+}
+
+object Coroutines {
+    const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
+}
+
+object Navigation {
+    const val uiKtx = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
+    const val compose = "androidx.navigation:navigation-compose:${Versions.navigation}"
+}
+
+object Gms {
+    const val gms = "com.google.android.gms:play-services-location:${Versions.gms}"
 }
 
 fun DependencyHandler.androidCore() {
@@ -122,15 +150,18 @@ fun DependencyHandler.test() {
     androidTestImplementation(Test.espresso)
 }
 
-fun DependencyHandler.dagger() {
-    implementation(Dagger.dagger)
-    kapt(Dagger.compiler)
+fun DependencyHandler.hilt() {
+    implementation(Hilt.hilt)
+    kapt(Hilt.compiler)
+    implementation(Hilt.navigation)
 }
 
 fun DependencyHandler.retrofit() {
     implementation(Retrofit.retrofit)
     implementation(Retrofit.jsonConverter)
     implementation(Retrofit.okHttp)
+    implementation(Retrofit.gsonConverter)
+    implementation(Retrofit.loggingInterceptor)
 }
 
 fun DependencyHandler.moshi() {
@@ -140,6 +171,23 @@ fun DependencyHandler.moshi() {
 fun DependencyHandler.room() {
     implementation(Room.room)
     kapt(Room.compiler)
+    implementation(Room.ktx)
 }
 
+fun DependencyHandler.desugaring() {
+    desugaring(Desugaring.desugaring)
+}
+
+fun DependencyHandler.coroutines() {
+    implementation(Coroutines.coroutines)
+}
+
+fun DependencyHandler.navigation() {
+    implementation(Navigation.uiKtx)
+    implementation(Navigation.compose)
+}
+
+fun DependencyHandler.location() {
+    implementation(Gms.gms)
+}
 

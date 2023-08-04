@@ -1,20 +1,32 @@
 package ru.yotfr.database.actualweather
 
 import ru.yotfr.database.actualweather.dao.ActualWeatherDao
-import ru.yotfr.database.actualweather.model.ActualWeatherEntity
+import ru.yotfr.database.actualweather.model.TodayActualWeatherEntity
+import ru.yotfr.database.actualweather.model.WeeklyActualWeatherEntity
 import javax.inject.Inject
 
 class ActualWeatherLocalProvider @Inject constructor(
     private val actualWeatherDao: ActualWeatherDao
 ) {
-    suspend fun updateWeather(actualWeatherEntity: ActualWeatherEntity) =
-        actualWeatherDao.upsertWeather(
+    suspend fun updateTodayWeather(actualWeatherEntity: TodayActualWeatherEntity) =
+        actualWeatherDao.upsertTodayWeather(
             actualWeatherEntity
         )
 
-    suspend fun deleteWeather(actualWeatherEntity: ActualWeatherEntity) =
-        actualWeatherDao.deleteWeather(actualWeatherEntity)
+    suspend fun deleteTodayWeather(actualWeatherEntity: TodayActualWeatherEntity) =
+        actualWeatherDao.deleteTodayWeather(actualWeatherEntity)
 
-    suspend fun getWeather(placeId: Long): ActualWeatherEntity =
-        actualWeatherDao.getWeather(placeId)
+    suspend fun getTodayWeather(placeId: Long): TodayActualWeatherEntity =
+        actualWeatherDao.getTodayWeather(placeId)
+
+    suspend fun updateWeeklyWeather(actualWeatherEntity: WeeklyActualWeatherEntity) =
+        actualWeatherDao.upsertWeeklyWeather(
+            actualWeatherEntity
+        )
+
+    suspend fun deleteWeeklyWeather(actualWeatherEntity: WeeklyActualWeatherEntity) =
+        actualWeatherDao.deleteWeeklyWeather(actualWeatherEntity)
+
+    suspend fun getWeeklyWeather(placeId: Long): WeeklyActualWeatherEntity =
+        actualWeatherDao.getWeeklyWeather(placeId)
 }

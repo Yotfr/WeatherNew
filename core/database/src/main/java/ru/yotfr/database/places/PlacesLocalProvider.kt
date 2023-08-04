@@ -14,5 +14,11 @@ class PlacesLocalProvider @Inject constructor(
         placesDao.deletePlace(placeEntity)
 
     suspend fun getPlace(id: Long): PlaceEntity =
-        placesDao.getPlace(id)
+        placesDao.getPlaceById(id)
+
+    suspend fun getSelectedPlace(): PlaceEntity? =
+        placesDao.getSelectedPlace()
+
+    suspend fun getHomePlace(): PlaceEntity? =
+        placesDao.getHomePlace()
 }
