@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="clear_sky">Ясно</string>
+    <string name="almost_clear">Переменная облачность</string>
+    <string name="cloudy">Облачно</string>
+    <string name="overcast">Пасмурно</string>
+    <string name="fog">Туман</string>
+    <string name="drizzle">Морось</string>
+    <string name="rain">Дождь</string>
+    <string name="snowfall">Снегопад</string>
+    <string name="snow_grains">Снег</string>
+    <string name="snowshower">Метель</string>
+    <string name="rainshower">Ливень</string>
+    <string name="thunderstorm">Гроза</string>
+    <string name="thunderstorm_hail">Гроза с градом</string>
+    <string name="unknown"> </string>
+    <string name="feels_like">Ощущается как</string>
+    <string name="weekly_forecast">К прогнозу на 16 дней</string>
+</resources>

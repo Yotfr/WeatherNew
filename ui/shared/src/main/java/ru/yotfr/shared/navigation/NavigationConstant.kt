@@ -3,6 +3,7 @@ package ru.yotfr.shared.navigation
 object ActualWeatherNavigationConstant {
     const val nestedRoute = "actual_weather_nested_route"
     const val todayScreenRoute = "actual_weather_today_screen_nested_route"
+    const val weeklyScreenRoute = "actual_weather_weekly_screen_nested_route"
 }
 
 object HistoricalWeatherNavigationConstant {

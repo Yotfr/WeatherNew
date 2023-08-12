@@ -1,6 +1,6 @@
 package ru.yotfr.actualweather.repository
 
-import ru.yotfr.common.model.DataState
+import ru.yotfr.common.DataState
 import ru.yotfr.shared.model.TodayWeatherModel
 import ru.yotfr.shared.model.WeeklyWeatherModel
 

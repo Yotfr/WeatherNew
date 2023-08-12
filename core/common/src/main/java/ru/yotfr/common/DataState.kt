@@ -1,4 +1,4 @@
-package ru.yotfr.common.model
+package ru.yotfr.common
 
 sealed interface DataState<T: Any> {
     class Loading<T: Any> : DataState<T>

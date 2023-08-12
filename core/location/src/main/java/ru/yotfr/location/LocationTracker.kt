@@ -9,8 +9,8 @@ import androidx.core.content.ContextCompat
 import com.google.android.gms.location.FusedLocationProviderClient
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.suspendCancellableCoroutine
-import ru.yotfr.common.model.DataState
-import ru.yotfr.common.model.ExceptionCause
+import ru.yotfr.common.DataState
+import ru.yotfr.common.ExceptionCause
 import javax.inject.Inject
 
 class LocationTracker @Inject constructor(

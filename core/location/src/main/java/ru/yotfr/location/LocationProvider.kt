@@ -1,6 +1,6 @@
 package ru.yotfr.location
 
-import ru.yotfr.common.model.DataState
+import ru.yotfr.common.DataState
 import javax.inject.Inject
 
 class LocationProvider @Inject constructor(

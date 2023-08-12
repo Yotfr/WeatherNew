@@ -4,8 +4,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import ru.yotfr.actualweather.repository.ActualWeatherRepository
-import ru.yotfr.common.model.DataState
-import ru.yotfr.common.model.on
+import ru.yotfr.common.DataState
+import ru.yotfr.common.on
 import ru.yotfr.shared.model.WeeklyWeatherModel
 import ru.yotfr.shared.repository.SharedRepository
 import javax.inject.Inject

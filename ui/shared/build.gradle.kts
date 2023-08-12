@@ -4,7 +4,7 @@ plugins {
     id("kotlin-kapt")
 }
 android {
-    namespace = "ru.yotfr.database"
+    namespace = "ru.yotfr.shared"
     compileSdk = WeatherConfig.compileSdk
 
     defaultConfig {
@@ -34,6 +34,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":domain:shared"))
+
     coroutines()
     moshi()
     hilt()

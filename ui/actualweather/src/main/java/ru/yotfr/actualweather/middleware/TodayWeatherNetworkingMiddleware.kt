@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.collectLatest
 import ru.yotfr.actualweather.action.TodayWeatherAction
 import ru.yotfr.actualweather.state.TodayWeatherState
 import ru.yotfr.actualweather.usecase.GetTodayWeatherUseCase
-import ru.yotfr.common.model.DataState
+import ru.yotfr.common.DataState
 import ru.yotfr.shared.redux.Middleware
 import ru.yotfr.shared.redux.Store
 

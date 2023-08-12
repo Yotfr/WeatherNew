@@ -1,6 +1,6 @@
 package ru.yotfr.places.repository
 
-import ru.yotfr.common.model.DataState
+import ru.yotfr.common.DataState
 import ru.yotfr.shared.model.PlaceModel
 
 interface PlacesRepository {

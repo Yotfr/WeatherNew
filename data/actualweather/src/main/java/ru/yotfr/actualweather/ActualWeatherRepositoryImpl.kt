@@ -13,8 +13,8 @@ import ru.yotfr.network.actualweather.ActualWeatherRemoteProvider
 import ru.yotfr.network.actualweather.DailyParameters
 import ru.yotfr.network.actualweather.HourlyParameters
 import ru.yotfr.network.calladapter.NetworkResponse
-import ru.yotfr.common.model.DataState
-import ru.yotfr.common.model.ExceptionCause
+import ru.yotfr.common.DataState
+import ru.yotfr.common.ExceptionCause
 import ru.yotfr.shared.model.TodayWeatherModel
 import ru.yotfr.shared.model.WeeklyWeatherModel
 import java.util.TimeZone

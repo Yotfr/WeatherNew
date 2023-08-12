@@ -1,6 +1,6 @@
 package ru.yotfr.actualweather.action
 
-import ru.yotfr.common.model.ExceptionCause
+import ru.yotfr.common.ExceptionCause
 import ru.yotfr.shared.model.TodayWeatherModel
 import ru.yotfr.shared.redux.Action
 

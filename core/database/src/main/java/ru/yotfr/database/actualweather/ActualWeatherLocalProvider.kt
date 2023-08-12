@@ -1,5 +1,6 @@
 package ru.yotfr.database.actualweather
 
+import android.util.Log
 import ru.yotfr.database.actualweather.dao.ActualWeatherDao
 import ru.yotfr.database.actualweather.model.TodayActualWeatherEntity
 import ru.yotfr.database.actualweather.model.WeeklyActualWeatherEntity
@@ -8,10 +9,15 @@ import javax.inject.Inject
 class ActualWeatherLocalProvider @Inject constructor(
     private val actualWeatherDao: ActualWeatherDao
 ) {
-    suspend fun updateTodayWeather(actualWeatherEntity: TodayActualWeatherEntity) =
-        actualWeatherDao.upsertTodayWeather(
-            actualWeatherEntity
-        )
+    suspend fun updateTodayWeather(actualWeatherEntity: TodayActualWeatherEntity) {
+
+    }
+        logger {
+            actualWeatherDao.upsertTodayWeather(
+                actualWeatherEntity
+            )
+        }
+
 
     suspend fun deleteTodayWeather(actualWeatherEntity: TodayActualWeatherEntity) =
         actualWeatherDao.deleteTodayWeather(actualWeatherEntity)

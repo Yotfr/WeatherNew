@@ -4,7 +4,7 @@ import ru.yotfr.database.places.PlacesLocalProvider
 import ru.yotfr.network.places.PlacesRemoteProvider
 import ru.yotfr.places.mapper.mapToPlaceModel
 import ru.yotfr.places.repository.PlacesRepository
-import ru.yotfr.common.model.DataState
+import ru.yotfr.common.DataState
 import ru.yotfr.shared.model.PlaceModel
 import javax.inject.Inject
 

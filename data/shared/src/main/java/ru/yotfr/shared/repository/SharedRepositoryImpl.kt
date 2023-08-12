@@ -5,8 +5,8 @@ import ru.yotfr.database.places.PlacesLocalProvider
 import ru.yotfr.database.places.model.PlaceEntity
 import ru.yotfr.location.LocationProvider
 import ru.yotfr.shared.mapper.mapToPlaceModel
-import ru.yotfr.common.model.DataState
-import ru.yotfr.common.model.ExceptionCause
+import ru.yotfr.common.DataState
+import ru.yotfr.common.ExceptionCause
 import ru.yotfr.shared.model.PlaceModel
 import javax.inject.Inject
 
