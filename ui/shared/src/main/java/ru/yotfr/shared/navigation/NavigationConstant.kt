@@ -2,32 +2,11 @@ package ru.yotfr.shared.navigation
 
 object ActualWeatherNavigationConstant {
     const val nestedRoute = "actual_weather_nested_route"
-    const val todayScreenRoute = "actual_weather_today_screen_nested_route"
-    const val weeklyScreenRoute = "actual_weather_weekly_screen_nested_route"
+    const val mainScreenRoute = "main_screen_route"
 }
 
-object HistoricalWeatherNavigationConstant {
-    const val nestedRoute = "historical_weather_nested_route"
+object PlacesNavigationConstant {
+    const val nestedRoute = "places_nested_route"
+    const val favoritePlacesScreenRoute = "favorite_places_route"
+    const val searchPlacesScreenRoute = "search_places_route"
 }
-
-object MarineWeatherNavigationConstant {
-    const val nestedRoute = "marine_weather_nested_route"
-}
-
-object AirQualityNavigationConstant {
-    const val nestedRoute = "air_quality_nested_route"
-}
-
-sealed class NavBarItems(val route: String) {
-    object ActualWeather : NavBarItems(ActualWeatherNavigationConstant.nestedRoute)
-    object HistoricalWeather : NavBarItems(HistoricalWeatherNavigationConstant.nestedRoute)
-    object MarineWeather : NavBarItems(HistoricalWeatherNavigationConstant.nestedRoute)
-    object AirQuality : NavBarItems(HistoricalWeatherNavigationConstant.nestedRoute)
-}
-
-val navBarItems = listOf(
-    NavBarItems.ActualWeather,
-    NavBarItems.HistoricalWeather,
-    NavBarItems.MarineWeather,
-    NavBarItems.AirQuality
-)

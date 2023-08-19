@@ -44,7 +44,6 @@ android {
 dependencies {
     implementation(project(":domain:shared"))
     implementation(project(":core:common"))
-    implementation(project(":domain:actualweather"))
     implementation(project(":ui:shared"))
 
     desugaring()

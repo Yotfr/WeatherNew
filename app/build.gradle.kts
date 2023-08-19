@@ -53,8 +53,9 @@ android {
 }
 
 dependencies {
-    implementation(project(":ui:actualweather"))
     implementation(project(":ui:shared"))
+    implementation(project(":ui:places"))
+    implementation(project(":ui:weather"))
     implementation(project(":core:common"))
     implementation(project(":core:database"))
     implementation(project(":core:network"))
@@ -62,11 +63,11 @@ dependencies {
     implementation(project(":core:ui"))
     implementation(project(":core:utility"))
     implementation(project(":domain:shared"))
-    implementation(project(":domain:places"))
-    implementation(project(":domain:actualweather"))
-    implementation(project(":data:actualweather"))
-    implementation(project(":data:places"))
+    implementation(project(":domain:geocoding"))
+    implementation(project(":domain:weather"))
     implementation(project(":data:shared"))
+    implementation(project(":data:geocoding"))
+    implementation(project(":data:weather"))
 
     androidCore()
     androidUi()

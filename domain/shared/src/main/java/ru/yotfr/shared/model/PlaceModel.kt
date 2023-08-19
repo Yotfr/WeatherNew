@@ -1,8 +1,13 @@
 package ru.yotfr.shared.model
 
 data class PlaceModel(
+    val id: Long,
     val name: String,
-    val id: Int,
-    val latitude: Double,
-    val longitude: Double
+    val localNames: Map<String, String>?,
+    val lat: Float,
+    val lon: Float,
+    val country: String,
+    val state: String?,
+    val isHome: Boolean,
+    val isLocation: Boolean
 )

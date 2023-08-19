@@ -15,5 +15,9 @@ fun AppNavGraph(
             navController = navController,
             navGraphBuilder = this
         )
+        navigationProvider.placesNavigationApi.registerGraph(
+            navController = navController,
+            navGraphBuilder = this
+        )
     }
 }

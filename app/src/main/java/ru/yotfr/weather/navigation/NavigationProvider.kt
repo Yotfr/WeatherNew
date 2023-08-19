@@ -1,7 +1,8 @@
 package ru.yotfr.weather.navigation
 
-import ru.yotfr.actualweather.navigation.ActualWeatherNavigationApi
+import ru.yotfr.places.navigation.PlacesNavigationApi
 
 data class NavigationProvider(
-    val actualWeatherNavigationApi: ActualWeatherNavigationApi
+    val actualWeatherNavigationApi: ActualWeatherNavigationApi,
+    val placesNavigationApi: PlacesNavigationApi
 )

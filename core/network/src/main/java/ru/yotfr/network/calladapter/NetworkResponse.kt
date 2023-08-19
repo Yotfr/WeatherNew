@@ -36,6 +36,7 @@ suspend fun <T: Any> NetworkResponse<T>.on(
                 success(data)
             }
         }
+        else -> {}
     }
 }
 

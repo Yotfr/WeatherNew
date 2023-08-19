@@ -4,7 +4,8 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import ru.yotfr.actualweather.navigation.ActualWeatherNavigationApi
+import ru.yotfr.places.navigation.PlacesNavigationApi
+import ru.yotfr.weather.navigation.ActualWeatherNavigationApi
 import ru.yotfr.weather.navigation.NavigationProvider
 
 @InstallIn(SingletonComponent::class)
@@ -12,7 +13,13 @@ import ru.yotfr.weather.navigation.NavigationProvider
 object AppModule {
 
     @Provides
-    fun provideNavigationProvider(actualWeatherNavigationApi: ActualWeatherNavigationApi): NavigationProvider {
-        return NavigationProvider(actualWeatherNavigationApi)
+    fun provideNavigationProvider(
+        actualWeatherNavigationApi: ActualWeatherNavigationApi,
+        placesNavigationApi: PlacesNavigationApi
+    ): NavigationProvider {
+        return NavigationProvider(
+            actualWeatherNavigationApi,
+            placesNavigationApi
+        )
     }
 }

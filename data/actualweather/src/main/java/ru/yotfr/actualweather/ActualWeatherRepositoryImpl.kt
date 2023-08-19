@@ -1,6 +1,5 @@
 package ru.yotfr.actualweather
 
-import android.util.Log
 import ru.yotfr.actualweather.mapper.mapToTodayWeatherModel
 import ru.yotfr.actualweather.mapper.mapToWeeklyWeatherModel
 import ru.yotfr.actualweather.repository.ActualWeatherRepository
@@ -9,12 +8,10 @@ import ru.yotfr.database.actualweather.model.Daily
 import ru.yotfr.database.actualweather.model.Hourly
 import ru.yotfr.database.actualweather.model.TodayActualWeatherEntity
 import ru.yotfr.database.actualweather.model.WeeklyActualWeatherEntity
-import ru.yotfr.network.actualweather.ActualWeatherRemoteProvider
-import ru.yotfr.network.actualweather.DailyParameters
-import ru.yotfr.network.actualweather.HourlyParameters
 import ru.yotfr.network.calladapter.NetworkResponse
 import ru.yotfr.common.DataState
 import ru.yotfr.common.ExceptionCause
+import ru.yotfr.common.log.log
 import ru.yotfr.shared.model.TodayWeatherModel
 import ru.yotfr.shared.model.WeeklyWeatherModel
 import java.util.TimeZone
@@ -47,11 +44,11 @@ class ActualWeatherRepositoryImpl @Inject constructor(
             forecastDays = 2,
             timeZone = getCurrentTimeZoneId()
         )
-        Log.d("TEST","NetworkResponse = $networkResponse")
+        log.i("Received today weather response from remote api")
         return when(networkResponse) {
             is NetworkResponse.Success -> {
                 // Updates cache or writes new
-                Log.d("TEST","Success response = ${networkResponse.data}")
+                log.d("Received today weather response from remote api is Success. Data: ${networkResponse.data}")
                 actualWeatherLocalProvider.updateTodayWeather(
                     TodayActualWeatherEntity(
                         placeId = placeId,
@@ -72,18 +69,24 @@ class ActualWeatherRepositoryImpl @Inject constructor(
                         )
                     )
                 )
-                Log.d("TEST","Local cache ${actualWeatherLocalProvider.getTodayWeather(
+                log.i("Successfully updated today weather local cache")
+                val localCache = actualWeatherLocalProvider.getTodayWeather(
                     placeId = placeId
-                )}")
-                val mappedLocalCache = actualWeatherLocalProvider.getTodayWeather(
-                    placeId = placeId
-                ).mapToTodayWeatherModel()
-                Log.d("TEST","Mapped Local cache $mappedLocalCache placeId $placeId")
+                )
+                log.d("Received today weather local cache. Entity: $localCache")
+                val mappedLocalCache = localCache.mapToTodayWeatherModel()
+                log.d("Mapped today weather local cache. Mapped model: $mappedLocalCache")
                 if (mappedLocalCache != null) DataState.Success(data = mappedLocalCache)
                 else DataState.Exception(ExceptionCause.Unknown)
             }
-            is NetworkResponse.Exception -> { DataState.Exception(ExceptionCause.Unknown) }
-            is NetworkResponse.Error -> { DataState.Exception(ExceptionCause.Unknown) }
+            is NetworkResponse.Exception -> {
+                log.d("Received today weather  response from remote api is Exception. Exception: ${networkResponse.e}")
+                DataState.Exception(ExceptionCause.Unknown)
+            }
+            is NetworkResponse.Error -> {
+                log.d("Received today weather  response from remote api is Error. Error: ${networkResponse.message}")
+                DataState.Exception(ExceptionCause.Unknown)
+            }
         }
     }
 
@@ -111,12 +114,14 @@ class ActualWeatherRepositoryImpl @Inject constructor(
                 minTemperature = true,
                 weatherCode = true
             ),
-            forecastDays = 16,
+            forecastDays = 14,
             timeZone = getCurrentTimeZoneId()
         )
+        log.i("Received weekly weather response from remote api")
         return when(networkResponse) {
             is NetworkResponse.Success -> {
                 // Updates cache or writes new
+                log.d("Received weekly weather response from remote api is Success. Data: ${networkResponse.data}")
                 actualWeatherLocalProvider.updateWeeklyWeather(
                     WeeklyActualWeatherEntity(
                         placeId = placeId,
@@ -143,14 +148,24 @@ class ActualWeatherRepositoryImpl @Inject constructor(
                         )
                     )
                 )
-                val mappedLocalCache = actualWeatherLocalProvider.getWeeklyWeather(
+                log.i("Successfully updated weekly weather local cache")
+                val localCache = actualWeatherLocalProvider.getWeeklyWeather(
                     placeId = placeId
-                ).mapToWeeklyWeatherModel()
+                )
+                log.d("Received weekly weather local cache. Entity: $localCache")
+                val mappedLocalCache = localCache.mapToWeeklyWeatherModel()
+                log.d("Mapped weekly weather local cache. Mapped model: $mappedLocalCache")
                 if (mappedLocalCache != null) DataState.Success(data = mappedLocalCache)
                 else DataState.Exception(ExceptionCause.Unknown)
             }
-            is NetworkResponse.Exception -> { DataState.Exception(ExceptionCause.Unknown) }
-            is NetworkResponse.Error -> { DataState.Exception(ExceptionCause.Unknown) }
+            is NetworkResponse.Exception -> {
+                log.d("Received weekly weather  response from remote api is Exception. Exception: ${networkResponse.e}")
+                DataState.Exception(ExceptionCause.Unknown)
+            }
+            is NetworkResponse.Error -> {
+                log.d("Received weekly weather  response from remote api is Error. Error: ${networkResponse.message}")
+                DataState.Exception(ExceptionCause.Unknown)
+            }
         }
     }
 

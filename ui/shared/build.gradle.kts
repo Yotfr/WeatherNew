@@ -25,6 +25,7 @@ android {
         }
     }
     compileOptions {
+        isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
@@ -35,7 +36,9 @@ android {
 
 dependencies {
     implementation(project(":domain:shared"))
+    implementation(project(":core:common"))
 
+    desugaring()
     coroutines()
     moshi()
     hilt()

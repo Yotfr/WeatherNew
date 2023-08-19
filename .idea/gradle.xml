@@ -7,6 +7,7 @@
         <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="jbr-17" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
@@ -20,16 +21,17 @@
             <option value="$PROJECT_DIR$/core/ui" />
             <option value="$PROJECT_DIR$/core/utility" />
             <option value="$PROJECT_DIR$/data" />
-            <option value="$PROJECT_DIR$/data/actualweather" />
-            <option value="$PROJECT_DIR$/data/places" />
+            <option value="$PROJECT_DIR$/data/geocoding" />
             <option value="$PROJECT_DIR$/data/shared" />
+            <option value="$PROJECT_DIR$/data/weather" />
             <option value="$PROJECT_DIR$/domain" />
-            <option value="$PROJECT_DIR$/domain/actualweather" />
-            <option value="$PROJECT_DIR$/domain/places" />
+            <option value="$PROJECT_DIR$/domain/geocoding" />
             <option value="$PROJECT_DIR$/domain/shared" />
+            <option value="$PROJECT_DIR$/domain/weather" />
             <option value="$PROJECT_DIR$/ui" />
-            <option value="$PROJECT_DIR$/ui/actualweather" />
+            <option value="$PROJECT_DIR$/ui/places" />
             <option value="$PROJECT_DIR$/ui/shared" />
+            <option value="$PROJECT_DIR$/ui/weather" />
           </set>
         </option>
       </GradleProjectSettings>

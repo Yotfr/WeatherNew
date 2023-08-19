@@ -5,7 +5,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import ru.yotfr.database.places.PlacesLocalProvider
-import ru.yotfr.network.places.PlacesRemoteProvider
+import ru.yotfr.network.geocoding.GeocodingRemoteProvider
 import ru.yotfr.places.repository.PlacesRepository
 
 @InstallIn(SingletonComponent::class)
@@ -14,11 +14,11 @@ object PlacesDataModule {
 
     @Provides
     fun providePlacesRepository(
-        placesRemoteProvider: PlacesRemoteProvider,
+        geocodingRemoteProvider: GeocodingRemoteProvider,
         placesLocalProvider: PlacesLocalProvider
     ) : PlacesRepository {
         return PlacesRepositoryImpl(
-            placesRemoteProvider,
+            geocodingRemoteProvider,
             placesLocalProvider
         )
     }

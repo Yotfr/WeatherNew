@@ -6,10 +6,10 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import ru.yotfr.database.actualweather.ActualWeatherLocalProvider
-import ru.yotfr.database.actualweather.dao.ActualWeatherDao
-import ru.yotfr.database.places.PlacesLocalProvider
-import ru.yotfr.database.places.dao.PlacesDao
+import ru.yotfr.database.geocoding.GeocodingLocalProvider
+import ru.yotfr.database.geocoding.dao.PlacesDao
+import ru.yotfr.database.weather.WeatherLocalProvider
+import ru.yotfr.database.weather.dao.WeatherDao
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -21,8 +21,8 @@ object DatabaseModule {
     }
 
     @Provides
-    fun provideActualWeatherDao(database: MDatabase): ActualWeatherDao {
-        return database.actualWeatherDao
+    fun provideWeatherDao(database: MDatabase): WeatherDao {
+        return database.weatherDao
     }
 
     @Provides
@@ -31,12 +31,12 @@ object DatabaseModule {
     }
 
     @Provides
-    fun provideActualWeatherLocalProvider(actualWeatherDao: ActualWeatherDao): ActualWeatherLocalProvider {
-        return ActualWeatherLocalProvider(actualWeatherDao)
+    fun provideWeatherLocalProvider(weatherDao: WeatherDao): WeatherLocalProvider {
+        return WeatherLocalProvider(weatherDao)
     }
 
     @Provides
-    fun providePlacesLocalProvider(placesDao: PlacesDao): PlacesLocalProvider {
-        return PlacesLocalProvider(placesDao)
+    fun providePlacesLocalProvider(placesDao: PlacesDao): GeocodingLocalProvider {
+        return GeocodingLocalProvider(placesDao)
     }
 }
